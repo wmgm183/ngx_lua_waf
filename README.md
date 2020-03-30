@@ -67,7 +67,7 @@ nginx安装路径假设为:/usr/local/nginx/conf/
         ipBlocklist={"1.0.0.1"}
         --ip黑名单，多个ip用逗号分隔
         CCDeny="on"
-        --是否开启拦截cc攻击(需要nginx.conf的http段增加lua_shared_dict limit 10m;)
+        --是否开启拦截cc攻击
         CCrate = "100/60"
         --设置cc攻击频率，单位为秒.
         --默认1分钟同一个IP只能请求同一个地址100次
