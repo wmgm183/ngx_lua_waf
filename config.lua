@@ -1,6 +1,6 @@
 RulePath = "/usr/local/nginx/conf/waf/wafconf/"
 attacklog = "on"
-logdir = "/usr/local/nginx/logs/hack/"
+logdir = "/root/.waflog/"
 UrlDeny="on"
 Redirect="on"
 CookieMatch="on"
@@ -9,9 +9,8 @@ whiteModule="on"
 black_fileExt={"php","jsp"}
 ipWhitelist={"127.0.0.1"}
 ipBlocklist={"1.0.0.1"}
-uriChecklist={"/users/sign_in", "/users/sign_up"}
-CCDeny="off"
-CCrate="100/60"
+CCDeny="on"
+CCrate="300/60"
 html=[[
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

@@ -8,7 +8,7 @@ https://github.com/loveshell/ngx_lua_waf
 - 采用/issues/73  解决在GBK和UTF-8多编码环境下的乱码
 - 采用/pull/138   添加2行div使提示居中显示
 - 采用/pull/83    修复yii框架等pathmode模式拿不到get参数的问题
-- 采用/pull/13    同一IP不能频繁请求uriChecklist={"/users/sign_in", "/users/sign_up"}列表中的地址
+- <del>采用/pull/13    同一IP不能频繁请求uriChecklist={"/users/sign_in", "/users/sign_up"}列表中的地址</del>无效果已去除
 
 
 
@@ -77,21 +77,12 @@ nginx安装路径假设为:/usr/local/nginx/conf/
         
 ### 检查规则是否生效
 
-部署完毕可以尝试如下命令：        
-  
-        curl http://xxxx/test.php?id=../etc/passwd
-        返回"Please go away~~"字样，说明规则生效。
+部署完毕可以尝试如下：        
+
+        http://xxxx/phpmyadmin
 
 注意:默认，本机在白名单不过滤，可自行调整config.lua配置
 
-
-### 规则更新：
-
-考虑到正则的缓存问题，动态规则会影响性能，所以暂没用共享内存字典和redis之类东西做动态管理。
-
-规则更新可以把规则文件放置到其他服务器，通过crontab任务定时下载来更新规则，nginx reload即可生效。以保障ngx lua waf的高性能。
-
-只记录过滤日志，不开启过滤，在代码里在check前面加上--注释即可，如果需要过滤，反之
 
 ### 一些说明：
 
