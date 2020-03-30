@@ -3,7 +3,7 @@ https://github.com/loveshell/ngx_lua_waf 后续维护
 
 ## 更新内容
 
-- 士大夫
+- 采用issues/132楼主 getClientIp()方法
 
 
 

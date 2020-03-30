@@ -15,11 +15,14 @@ attacklog = optionIsOn(attacklog)
 CCDeny = optionIsOn(CCDeny)
 Redirect=optionIsOn(Redirect)
 function getClientIp()
-        IP  = ngx.var.remote_addr 
-        if IP == nil then
-                IP  = "unknown"
-        end
-        return IP
+local headers = ngx.req.get_headers()
+local reip = headers["X-REAL-IP"] or headers["X_FORWARDED_FOR"] or ngx.var.remote_addr or "0.0.0.0"
+return reip
+--IP = ngx.var.remote_addr
+-- if IP == nil then
+-- IP = "unknown"
+-- end
+-- return IP
 end
 function write(logfile,msg)
     local fd = io.open(logfile,"ab")
