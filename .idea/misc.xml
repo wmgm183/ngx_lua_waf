@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Code SmellPHP</id>
+          </State>
+          <State>
+            <id>Code StylePHP</id>
+          </State>
+          <State>
+            <id>ComposerPHP</id>
+          </State>
+          <State>
+            <id>Control FlowPHP</id>
+          </State>
+          <State>
+            <id>DatabaseYii2FrameworkPHP</id>
+          </State>
+          <State>
+            <id>DocBlocksJoomla!</id>
+          </State>
+          <State>
+            <id>Error handlingPHP</id>
+          </State>
+          <State>
+            <id>FrameworkPHP</id>
+          </State>
+          <State>
+            <id>GeneralPHP</id>
+          </State>
+          <State>
+            <id>Joomla!</id>
+          </State>
+          <State>
+            <id>Naming conventionsPHP</id>
+          </State>
+          <State>
+            <id>Object FactoryYii2FrameworkPHP</id>
+          </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>PHP Strict StandardsPHP</id>
+          </State>
+          <State>
+            <id>PHPDocPHP</id>
+          </State>
+          <State>
+            <id>PHPUnitPHP</id>
+          </State>
+          <State>
+            <id>Probable bugsPHP</id>
+          </State>
+          <State>
+            <id>Quality toolsPHP</id>
+          </State>
+          <State>
+            <id>Replaceable assignmentsPHP</id>
+          </State>
+          <State>
+            <id>Type compatibilityPHP</id>
+          </State>
+          <State>
+            <id>UndefinedPHP</id>
+          </State>
+          <State>
+            <id>UnusedPHP</id>
+          </State>
+          <State>
+            <id>ViewsYii2FrameworkPHP</id>
+          </State>
+          <State>
+            <id>Yii2FrameworkPHP</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="Yii2 Support">
+    <option name="yiiRootPath" value="D:\web_tool\y2.com\y2.com" />
+    <option name="migrateCommands">
+      <list>
+        <MigrateCommand>
+          <option name="isDefault" value="true" />
+          <option name="command" value="migrate" />
+          <option name="migrationTable" value="{{%migration}}" />
+          <option name="db" value="db" />
+          <option name="migrationPath">
+            <list>
+              <option value="@app/migrations" />
+            </list>
+          </option>
+        </MigrateCommand>
+      </list>
+    </option>
+    <option name="aliasMap">
+      <map>
+        <entry key="@webroot" value="@app/web" />
+        <entry key="@vendor" value="vendor" />
+        <entry key="@runtime" value="@app/runtime" />
+        <entry key="@yii2support-console-command-app-root" value="" />
+      </map>
+    </option>
+  </component>
+</project>
