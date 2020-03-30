@@ -1,6 +1,6 @@
 RulePath = "/usr/local/nginx/conf/waf/wafconf/"
 attacklog = "on"
-logdir = "/root/.waflog/"
+logdir = "/home/wwwlogs/"
 UrlDeny="on"
 Redirect="on"
 CookieMatch="on"
