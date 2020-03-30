@@ -46,6 +46,18 @@ function log(method,url,data,ruletag)
         write(filename,line)
     end
 end
+
+function startswith(str, substr)
+    if str == nil or substr == nil then
+        return nil, "the string or the sub-stirng parameter is nil"
+    end
+    if string.find(str, substr) ~= 1 then
+        return false
+    else
+        return true
+    end
+end
+
 ------------------------------------规则读取函数-------------------------------------------------------------------
 function read_rule(var)
     file = io.open(rulepath..'/'..var,"r")
@@ -70,7 +82,7 @@ ckrules=read_rule('cookie')
 
 function say_html()
     if Redirect then
-        ngx.header.content_type = "text/html"
+        ngx.header.content_type = "text/html; charset=UTF-8"
         ngx.status = ngx.HTTP_FORBIDDEN
         ngx.say(html)
         ngx.exit(ngx.status)
@@ -109,6 +121,11 @@ function Set (list)
 end
 function args()
     for _,rule in pairs(argsrules) do
+            if ngxmatch(unescape(ngx.var.request_uri),rule,"isjo") then
+                    log('test',ngx.var.request_uri,"-",rule)
+                    say_html()
+                    return true
+            end
         local args = ngx.req.get_uri_args()
         for key, val in pairs(args) do
             if type(val)=='table' then
@@ -187,6 +204,7 @@ end
 function denycc()
     if CCDeny then
         local uri=ngx.var.uri
+        local uri=ngx.var.request_uri
         CCcount=tonumber(string.match(CCrate,'(.*)/'))
         CCseconds=tonumber(string.match(CCrate,'/(.*)'))
         local token = getClientIp()..uri
@@ -202,6 +220,28 @@ function denycc()
         else
             limit:set(token,1,CCseconds)
         end
+
+        if next(uriChecklist) ~= nil then
+            for _,ckuri in pairs(uriChecklist) do
+                if startswith(uri,ckuri) then
+                    token = getClientIp()
+                    local limit = ngx.shared.limit
+                    local req,_=limit:get(token)
+                    if req then
+                        if req > CCcount then
+                             table.insert(ipBlocklist,token)
+                        else
+                             limit:incr(token,1)
+                        end
+                    else
+                        limit:set(token,1,CCseconds)
+                    end
+                end
+
+             end
+        end
+
+        blockip()
     end
     return false
 end

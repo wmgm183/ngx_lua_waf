@@ -1,13 +1,14 @@
 # ngx_lua_waf
-https://github.com/loveshell/ngx_lua_waf 后续维护
+https://github.com/loveshell/ngx_lua_waf 
+鉴于原作者不提供后续维护，本人不才接着用，欢迎各位大佬来完善
 
 ## 更新内容
 
-- 采用issues/132楼主 getClientIp()方法
-
-
-
-
+- 采用issues/132  修改获取客户端真实ip的代码，支持代理
+- 采用/issues/73  解决在GBK和UTF-8多编码环境下的乱码
+- 采用/pull/138   添加2行div使提示居中显示
+- 采用/pull/83    修复yii框架等pathmode模式拿不到get参数的问题
+- 采用/pull/13    同一IP不能频繁请求uriChecklist={"/users/sign_in", "/users/sign_up"}列表中的地址
 
 
 
