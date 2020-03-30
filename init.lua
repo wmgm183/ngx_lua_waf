@@ -67,14 +67,24 @@ wturlrules=read_rule('whiteurl')
 postrules=read_rule('post')
 ckrules=read_rule('cookie')
 
+function say_html(v)
+if not v then
+            if Redirect then
+                ngx.header.content_type = "text/html; charset=UTF-8"
+                ngx.status = ngx.HTTP_FORBIDDEN
+                ngx.say(html)
+                ngx.exit(ngx.status)
+            end
+        else
+                ngx.header.content_type = "text/html; charset=UTF-8"
+                ngx.status = ngx.HTTP_FORBIDDEN
+                ngx.say(say2_html(v))
+                ngx.exit(ngx.status)
+        end
+end
 
-function say_html()
-    if Redirect then
-        ngx.header.content_type = "text/html; charset=UTF-8"
-        ngx.status = ngx.HTTP_FORBIDDEN
-        ngx.say(html)
-        ngx.exit(ngx.status)
-    end
+function say2_html(var)
+return var
 end
 
 function whiteurl()
@@ -199,7 +209,7 @@ function denycc()
         local req,_=limit:get(token)
         if req then
             if req > CCcount then
-                 ngx.exit(503)
+                 say_html("频繁访问限制，请稍后再试")
                 return true
             else
                  limit:incr(token,1)
@@ -244,7 +254,7 @@ function blockip()
      if next(ipBlocklist) ~= nil then
          for _,ip in pairs(ipBlocklist) do
              if getClientIp()==ip then
-                 ngx.exit(403)
+                 say_html("禁止访问")
                  return true
              end
          end

@@ -4,6 +4,7 @@ https://github.com/loveshell/ngx_lua_waf
 
 ## 更新内容
 
+- 优化了访问频繁,被列黑名单ip的访问提示
 - 采用issues/132  修改获取客户端真实ip的代码，支持代理
 - 采用/issues/73  解决在GBK和UTF-8多编码环境下的乱码
 - 采用/pull/138   添加2行div使提示居中显示
